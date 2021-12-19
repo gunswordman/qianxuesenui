@@ -2,7 +2,7 @@
   <div class="login_container">
     <img src ="../assets/login_bg.png" height="100%" width="100%"/>
     <div class="login_box">
-      <span class="logintitle">南京理工大学钱学森学院</span>
+      <span class="logintitle">南京理工大学钱学森学院教学评价系统</span>
       <el-form
         ref="loginFormref"
         :model="loginForm"
@@ -24,8 +24,8 @@
           ></el-input>
         </el-form-item>
         <el-form-item class="btns">
-          <el-button type="primary" @click="login">login</el-button>
-          <el-button type="info" @click="resetloginForm">reset</el-button>
+          <el-button type="primary" @click="login">登录</el-button>
+          <el-button type="info" @click="resetloginForm">重置</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -107,10 +107,10 @@ export default {
 }
 .logintitle{
   position: absolute;
-  padding: 5%;
+  padding: 7%;
   left: 5%;
   right: 5%;
   text-align: center;
-  font-size: 30px;
+  font-size: 20px;
 }
 </style>

@@ -6,6 +6,7 @@ import stuwelcome from '../components/student/stuwelcome.vue'
 import teawelcome from '../components/teacher/teawelcome.vue'
 import stuhome from '../components/student/stuhome.vue'
 import xuanke from '../components/student/xuanke.vue'
+import stupw from '../components/student/stupw.vue'
 import teahome from '../components/teacher/teahome.vue'
 
 Vue.use(VueRouter)
@@ -19,7 +20,8 @@ const routes = [
     redirect: '/stuwelcome',
     children: [
       { path: '/stuwelcome', component: stuwelcome },
-      { path: '/xuanke', component: xuanke }
+      { path: '/xuanke', component: xuanke },
+      { path: '/stupw', component: stupw }
     ]
   },
   {

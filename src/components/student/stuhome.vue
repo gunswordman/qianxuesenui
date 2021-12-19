@@ -3,7 +3,7 @@
     <el-header class="header">
       <div class=“header_class”>
         <img height="100%" src="../../assets/banner.png"  alt="baner">
-        <span class="head_title">南京理工大学钱学森学院</span>
+        <span class="head_title">钱学森学院教学评价系统</span>
         <span class="welcome">
           欢迎您,{{ this.username }}&emsp;
           <el-button @click="logout">退出</el-button>
@@ -16,6 +16,10 @@
           <el-menu-item index="/xuanke">
             <i class="el-icon-location"></i>
             <span slot="title">查看选课信息</span>
+          </el-menu-item>
+          <el-menu-item index="/stupw">
+            <i class="el-icon-location"></i>
+            <span slot="title">修改密码</span>
           </el-menu-item>
         </el-menu>
       </el-aside>
