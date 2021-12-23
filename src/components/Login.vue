@@ -1,8 +1,8 @@
 <template>
   <div class="login_container">
-    <img src ="../assets/login_bg.png" height="100%" width="100%"/>
+    <!-- <img src ="../assets/login_bg.png" height="100%" width="100%"/> -->
     <div class="login_box">
-      <span class="logintitle">南京理工大学钱学森学院教学评价系统</span>
+      <span class="logintitle">南京理工大学钱学森学院课程教学评价系统</span>
       <el-form
         ref="loginFormref"
         :model="loginForm"
@@ -78,10 +78,11 @@ export default {
 <style>
 .login_container {
   height: 100%;
+  background:rgb(211, 220, 230);
 }
 .login_box {
-  width: 450px;
-  height: 300px;
+  width: 500px;
+  height: 350px;
   background-color: azure;
   border-radius: 3px;
   position: absolute;

@@ -17,6 +17,10 @@
             <i class="el-icon-location"></i>
             <span slot="title">查看评教信息</span>
           </el-menu-item>
+          <el-menu-item index="/teapw">
+            <i class="el-icon-location"></i>
+            <span slot="title">修改密码</span>
+          </el-menu-item>
         </el-menu>
       </el-aside>
       <el-main>

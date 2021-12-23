@@ -4,9 +4,13 @@ import {
   Pagination,
   Dialog,
   Breadcrumb,
-  BreadcrumbItem
+  BreadcrumbItem,
+  Descriptions,
+  DescriptionsItem,
+  Card
 } from 'element-ui'
 
+Vue.use(Card)
 Vue.use(Form)
 Vue.use(Input)
 Vue.use(FormItem)
@@ -23,4 +27,6 @@ Vue.use(Pagination)
 Vue.use(Dialog)
 Vue.use(Breadcrumb)
 Vue.use(BreadcrumbItem)
+Vue.use(Descriptions)
+Vue.use(DescriptionsItem)
 Vue.prototype.$message = Message

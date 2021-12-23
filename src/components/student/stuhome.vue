@@ -3,7 +3,7 @@
     <el-header class="header">
       <div class=“header_class”>
         <img height="100%" src="../../assets/banner.png"  alt="baner">
-        <span class="head_title">钱学森学院教学评价系统</span>
+        <span class="head_title">钱学森学院课程教学评价系统</span>
         <span class="welcome">
           欢迎您,{{ this.username }}&emsp;
           <el-button @click="logout">退出</el-button>
@@ -62,6 +62,7 @@ export default {
 
 .home_container {
   height: 100%;
+  width: 100%;
 }
 .header {
   background-color: #b3c0d1;

@@ -1,7 +1,7 @@
 <template>
 <div>
   <el-breadcrumb separator="/">
-      <el-breadcrumb-item :to="{ path: '/stuhome' }">首页</el-breadcrumb-item>
+      <el-breadcrumb-item :to="{ path: '/teahome' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>修改密码</el-breadcrumb-item>
     </el-breadcrumb>
   <div class="pwContainer">
@@ -66,7 +66,7 @@ export default {
     }
   },
   created () {
-    this.pwForm.username = window.sessionStorage.getItem('stu')
+    this.pwForm.username = window.sessionStorage.getItem('tea')
   },
   methods: {
     resetloginForm () {
@@ -79,7 +79,7 @@ export default {
         const result = await this.$http.post('resetpwd', this.pwForm)
         if (result.data.status === 'failed') return this.$message.error('设置失败，请重试')
         this.$message.success('设置成功')
-        this.$router.push('/stuhome')
+        this.$router.push('/teahome')
       })
     }
   }

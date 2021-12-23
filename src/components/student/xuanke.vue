@@ -2,9 +2,9 @@
   <div>
     <el-breadcrumb separator="/">
       <el-breadcrumb-item :to="{ path: '/stuhome' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>活动列表</el-breadcrumb-item>
+      <el-breadcrumb-item>选课列表</el-breadcrumb-item>
     </el-breadcrumb>
-    <el-table :data="xuankelist" border style="width: 100%; height: 100%">
+    <el-table :data="xuankelist" border>
       <el-table-column prop="cl_cid" label="课程编号"> </el-table-column>
       <el-table-column prop="cl_name" label="课程名称"> </el-table-column>
       <el-table-column prop="teacher" label="教师"> </el-table-column>
@@ -12,7 +12,7 @@
         <template slot-scope="pingjiaoscope">
           <el-button
             type="text"
-            v-if="pingjiaoscope.row.ispj == false"
+            v-if="pingjiaoscope.row.ispj == false && pingjiaoscope.row.cl_name!=='毕业实习'"
             @click="
               pingjiaodialog(
                 pingjiaoscope.row.cl_cid,
@@ -23,27 +23,27 @@
             "
             >评教</el-button
           >
+          <div v-else-if="pingjiaoscope.row.cl_name == '毕业实习'"></div>
           <div v-else>已评教</div>
         </template>
       </el-table-column>
     </el-table>
     <!-- 评教对话框 -->
-    <el-dialog title="评教" :visible.sync="pingjiaodialogVisible" width="70%">
+    <el-dialog title="评教" :visible.sync="pingjiaodialogVisible" width="1026px">
       <span> 课程号：{{ addpj.cl_cid }}&emsp; </span>
       <span> 课程名：{{ addpj.cl_name }}&emsp; </span>
       <span> 任课教师：{{ addpj.teacher }} </span>
-      <el-form :model="form" :rules="form.rules" ref="pjFormref">
+      <el-form :model="form" :rules="form.rules" ref="pjFormref" size="mini">
         <el-table
           :data="form.pingjiaolist"
           :span-method="objectSpanMethod"
           border
-          style="width: 100%; margin-top: 10px"
+          style="width: 1000px; margin-top: 10px"
         >
-          <el-table-column prop="kind" label="评教内容" width="180">
-          </el-table-column>
-          <el-table-column prop="describe" label="评教指标"> </el-table-column>
-          <el-table-column prop="totalscore" label="满分"> </el-table-column>
-          <el-table-column label="评分">
+          <el-table-column prop="kind" label="评教内容" width="120px"></el-table-column>
+          <el-table-column prop="describe" label="评教指标" width="690"> </el-table-column>
+          <el-table-column prop="totalscore" label="满分" width="55"> </el-table-column>
+          <el-table-column label="评分" width="120">
             <template slot-scope="inputscope">
               <el-form-item
                 v-if="
@@ -68,7 +68,7 @@
           </el-table-column>
         </el-table>
         <el-form-item label="教学建议">
-          <el-input type="textarea" v-model="form.advice"></el-input>
+          <el-input type="textarea" v-model="form.advice" maxlength="200" show-word-limit></el-input>
         </el-form-item>
         <el-form-item>
           <el-button @click="pingjiaodialogVisible = false">取 消</el-button>
@@ -96,7 +96,7 @@ export default {
         pingjiaolist: [
           {
             kind: '教学基本情况',
-            describe: '任课教师重视教学，可成准备充分，做好课堂教学秩序管理。',
+            describe: '任课教师重视教学，课程准备充分，做好课堂教学秩序管理。',
             totalscore: 8,
             point: null
           },
@@ -156,7 +156,7 @@ export default {
           },
           {
             kind: '教学效果及考核',
-            describe: '教学效果及考核 通过课程学习，增强了学生的历史使命感和社会责任心。',
+            describe: '通过课程学习，增强了学生的历史使命感和社会责任心。',
             totalscore: 5,
             point: null
           },
@@ -284,4 +284,5 @@ export default {
 </script>
 
 <style scoped>
+
 </style>>
