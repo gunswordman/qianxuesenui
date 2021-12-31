@@ -10,6 +10,9 @@ import stupw from '../components/student/stupw.vue'
 import teahome from '../components/teacher/teahome.vue'
 import details from '../components/teacher/details.vue'
 import teapw from '../components/teacher/teapw.vue'
+import alladvice from '../components/teacher/alladvice.vue'
+import preview from '../components/teacher/preview.vue'
+import prepoint from '../components/teacher/prepoint.vue'
 
 Vue.use(VueRouter)
 
@@ -34,6 +37,9 @@ const routes = [
       { path: '/teawelcome', component: teawelcome },
       { path: '/outcome', component: outcome },
       { path: '/details', component: details },
+      { path: '/alladvice', component: alladvice },
+      { path: '/preview', component: preview },
+      { path: '/prepoint', component: prepoint, name: 'prepoint' },
       { path: '/teapw', component: teapw }
     ]
   }

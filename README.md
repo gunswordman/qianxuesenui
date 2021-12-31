@@ -22,3 +22,7 @@ npm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
+
+本项目缺点：
+没有登录挤掉
+只有登录操作有验证，且验证为明文

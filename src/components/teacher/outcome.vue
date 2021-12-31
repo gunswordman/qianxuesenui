@@ -8,6 +8,7 @@
       <el-table-column label="院系" prop="cl_school"></el-table-column>
       <el-table-column label="课程编号" prop="cl_cid"></el-table-column>
       <el-table-column label="课程名称" prop="cl_name"></el-table-column>
+      <el-table-column label="班级号" prop="cl_id"></el-table-column>
       <el-table-column label="教师" prop="teacher"> </el-table-column>
       <el-table-column label="参评人数" prop="num"> </el-table-column>
       <el-table-column label="综合得分" prop="point"> </el-table-column>
@@ -18,12 +19,13 @@
       </el-table-column>
     </el-table>
     <el-pagination
+      @size-change="handleSizeChange"
       @current-change="handleCurrentChange"
       :current-page="queryInfo.pagenum"
+      :page-sizes="sizes"
       :page-size="queryInfo.pagesize"
-      layout="prev, pager, next, jumper"
-      :total="total"
-    >
+      layout="total, sizes, prev, pager, next, jumper"
+      :total="total">
     </el-pagination>
   </div>
 </template>
@@ -32,18 +34,19 @@
 export default {
   data () {
     return {
+      sizes: [10, 20, 50, 100],
       queryInfo: {
-        // 当前页码
+        // 当前页码和大小
         pagenum: 1,
         pagesize: 10
       },
       list: [],
-      total: null
+      total: 0
     }
   },
   created () {
     if (sessionStorage.getItem('outcomepagenum') != null) {
-      this.queryInfo.pagenum = window.sessionStorage.getItem('outcomepagenum')
+      this.queryInfo.pagenum = Number(window.sessionStorage.getItem('outcomepagenum'))
     }
     this.getList()
   },
@@ -58,6 +61,10 @@ export default {
       if (res.data.status === 'failed') return this.$message.error('获取选课信息失败！')
       this.list = res.data.list
       this.total = res.data.total
+    },
+    handleSizeChange (newsize) {
+      this.queryInfo.pagesize = newsize
+      this.getList()
     },
     handleCurrentChange (newpage) {
       // console.log(newpage)

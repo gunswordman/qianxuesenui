@@ -26,7 +26,7 @@
           type="password"
         ></el-input>
       </el-form-item>
-      <el-form-item label="再次输入新密码" prop="againpw">
+      <el-form-item label="再次输入新密码" prop="newpw">
         <el-input
           v-model="pwForm.againpw"
           prefix-icon="el-icon-lock"
@@ -53,14 +53,11 @@ export default {
         againpw: ''
       },
       pwFormRules: {
-        password: [
-          { required: true, message: '请输入用户名', trigger: 'blur' }
+        oldpw: [
+          { required: true, message: '请输入密码', trigger: 'blur' }
         ],
         newpw: [
-          { required: true, message: '请输入用户名', trigger: 'blur' }
-        ],
-        againpw: [
-          { required: true, message: '请输入密码', trigger: 'blur' }
+          { required: true, message: '请输入新密码', trigger: 'blur' }
         ]
       }
     }

@@ -9,19 +9,11 @@
     </el-breadcrumb>
     <el-card>
       <el-descriptions class="margin-top" :column="2" border>
-        <el-descriptions-item label="教师姓名">{{
-          teacher
-        }}</el-descriptions-item>
-        <el-descriptions-item label="讲授课程">{{
-          cl_name
-        }}</el-descriptions-item>
-        <el-descriptions-item label="开课院系">{{
-          cl_school
-        }}</el-descriptions-item>
+        <el-descriptions-item label="教师姓名">{{teacher}}</el-descriptions-item>
+        <el-descriptions-item label="讲授课程">{{cl_name}}</el-descriptions-item>
+        <el-descriptions-item label="开课院系">{{cl_school}}</el-descriptions-item>
         <el-descriptions-item label="评教人员">学生</el-descriptions-item>
-        <el-descriptions-item label="教学建议信息"
-          >共计{{ advnum }}条</el-descriptions-item
-        >
+        <el-descriptions-item label="教学建议信息">共计{{ advnum }}条</el-descriptions-item>
         <el-descriptions-item label="参评人数">{{ num }}</el-descriptions-item>
       </el-descriptions>
     </el-card>
@@ -90,9 +82,8 @@ export default {
   },
   created () {
     this.queryInfo.id = window.sessionStorage.getItem('id')
-    console.log(this.queryInfo.id)
-    if (this.id) return this.$message.error('获取选课信息失败,请重试尝试！')
-    this.getDetails()
+    if (this.id) return this.$message.error('获取信息失败,请重试尝试！')
+    this.getDetails(this.queryInfo.id)
   },
   mounted () {
     this.init()

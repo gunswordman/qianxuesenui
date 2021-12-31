@@ -13,12 +13,20 @@
     <el-container>
       <el-aside width="200px">
         <el-menu :router="true">
+          <el-menu-item index="/preview">
+            <i class="el-icon-view"></i>
+            <span slot="title">预览</span>
+          </el-menu-item>
           <el-menu-item index="/outcome">
+            <i class="el-icon-menu"></i>
+            <span slot="title">评教信息</span>
+          </el-menu-item>
+          <el-menu-item index="/alladvice">
             <i class="el-icon-location"></i>
-            <span slot="title">查看评教信息</span>
+            <span slot="title">所有建议</span>
           </el-menu-item>
           <el-menu-item index="/teapw">
-            <i class="el-icon-location"></i>
+            <i class="el-icon-lock"></i>
             <span slot="title">修改密码</span>
           </el-menu-item>
         </el-menu>
